@@ -51,7 +51,7 @@
                         
                     </div>
                     <div class="bottom-nav-search">
-                        <div class="site-slogan">fresh truths about shopping</div>
+                        <div class="site-slogan">helping you shop smarter</div>
                         <div class="site-search"></div>
                     </div>
                 </div>

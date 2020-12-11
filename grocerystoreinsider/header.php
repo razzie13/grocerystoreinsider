@@ -35,7 +35,7 @@
 		<div class="site-width">
 			<div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></div>
 			<div class="site-search"></div>
-			<div class="site-slogan">fresh truths about shopping</div>
+			<div class="site-slogan">helping you shop smarter</div>
 		</div>
 	</div>
 </header>
@@ -46,7 +46,7 @@
 
 		<nav id="site-navigation" class="main-navigation">
 			<div class="site-width">
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Click to View Menu', 'grocerystoreinsider' ); ?></button>
+				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Click Here to View Menu', 'grocerystoreinsider' ); ?></button>
 				<?php
 				wp_nav_menu(
 					array(

@@ -30,20 +30,6 @@
 
 	<?php grocerystoreinsider_post_thumbnail(); ?>
 
-	<?php 
-	function get_the_date( $format = '', $post = null ) {
-		$post = get_post( $post );
-	 
-		if ( ! $post ) {
-			return false;
-		}
-	 
-		$_format = ! empty( $format ) ? $format : get_option( 'date_format' );
-	 
-		$the_date = get_post_time( $_format, false, $post, true );
-	// get_the_category();
-	?>
-
 	<div class="entry-content">
 		<?php
 		the_content(
