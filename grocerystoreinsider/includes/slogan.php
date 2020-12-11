@@ -1,0 +1,1 @@
+fresh truths about shopping

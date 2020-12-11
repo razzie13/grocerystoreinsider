@@ -1,0 +1,207 @@
+:root  {
+
+/* COLOUR VARIABLES START */
+--page-bg-colour: white;
+
+--main-bg-colour: #00A779;
+--secondary-bg-colour: #FFC364;
+
+--main-bg-link-colour: white;
+--secondary-bg-link-colour: black;
+
+--main-bg-text-colour: white;
+--secondary-bg-text-colour: black;
+
+--page-bg: #F2F2F2;
+--article-bg: #E5DBDB;
+
+--article-headline-colour: black;
+--article-text-colour: black;
+--nav-text-colour: black;
+
+--site-search-button-bg: #FF9C64;
+--site-search-button-text-colour: black;
+--site-search-placeholder-text-colour: #707070;
+/* COLOUR VARIABLES END */
+
+/* SPACING VARIABLES START */
+--page-width: 100%;
+--max-page-width: 1920px;
+
+--content-width: 910px;
+
+/* SPACING VARIABLES END */
+
+/* SITE SIZE VARIABLES START */
+--site-body-width: 958px;
+--site-body-padding: 24px;
+
+--nav-line-height: 33px;
+
+--header-height: 90px;
+--footer-height: 201px;
+
+--hero-height: 282px;
+/* SITE SIZE VARIABLES END */
+
+/* FONT SIZE VARIABLES START */
+--largest-size: 48px;
+--second-largest-size: 40px;
+--third-largest-size: 32px;
+--smallest-size: 18px;
+
+/* FONT SIZE VARIABLES END */
+}
+
+body  {
+    margin: 0;
+    padding: 0;
+    background-color: var(--page-bg-colour);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header  {
+    width: var(--page-width);
+    max-width: var(--max-page-width);
+    height: var(--header-height);
+    background-color: var(--main-bg-colour);
+    color: var(--main-bg-text-colour);
+    font-weight: bold;
+}
+
+header a  {
+    color: var(--main-bg-link-colour);
+    text-decoration: none;
+}
+
+.site-title  {
+    font-size: var(--largest-size);
+}
+
+.site-title a  {
+    color: var(--main-bg-link-colour);
+    text-decoration: none;
+}
+
+.site-width  {
+    width: var(--site-body-width);
+    margin: auto;
+}
+
+nav  {
+	background-color: var(--secondary-bg-colour);
+	color: var(--nav-text-colour);
+	width: var(--page-width);
+	max-width: var(--max-page-width);
+	line-height: var(--nav-line-height);
+	position: relative;
+
+}
+
+.nav-links  {
+	padding-left: var(--site-body-padding);
+	padding-right: var(--site-body-padding);
+	line-height: var(--nav-line-height);
+	font-weight: bold;
+}
+
+.nav-links a:hover  {
+    text-decoration: underline;
+    color: var(--article-headline-colour);
+}
+
+.nav-links a  {
+    text-decoration: none;
+    color: var(--article-headline-colour);
+}
+
+main  {
+    width: var(--page-width);
+    max-width: var(--site-body-width);
+    background-color: var(--page-bg);
+    margin: auto;
+    padding: var(--site-body-padding);
+}
+
+article {
+    padding: var(--site-body-padding);
+	background-color: var(--article-bg);
+	border-radius: var(--border-radius);
+}
+
+article a, .cat-links   {
+    text-decoration: underline;
+    color: var(--article-headline-colour);
+}
+
+article a:hover, .cat-links  {
+    text-decoration: none;
+    color: var(--article-headline-colour);
+}
+
+.site-hero  {
+    height: var(--hero-height);
+    width: 100%;
+    background-color: var(--article-bg);
+}
+
+footer  {
+    width: var(--page-width);
+    max-width: var(--max-page-width);
+    background-color: var(--main-bg-colour);
+    color: var(--main-bg-text-colour);
+    height: var(--footer-height);
+    font-weight: bold;
+}
+
+.bottom-nav-bar  {
+    display: flex;
+    width: var(--content-width);
+}
+
+.bottom-nav-links  {
+    width: 66%;
+    max-width: 600px;
+}
+
+.site-title  {
+    width: 100%;
+}
+
+.site-links ul  {
+    width: 50%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.bottom-nav-search  {
+    display: flex;
+    width: 34%;
+}
+
+footer .site-slogan, footer .site-search  {
+    width: 100%;
+}
+
+.page-width  {
+    background-color: var(--main-bg-colour);
+    color: white;
+}
+
+.page-background  {
+    background-color: var(--page-bg);
+}
+
+.article-background  {
+    background-color: var(--article-bg);
+}
+
+.site-search button  {
+    background-color: var(--site-search-button-bg);
+    color: var(--site-search-button-text-colour)
+}
+
+.site-search input  {
+    color: var(--site-search-placeholder-text-colour);
+}
