@@ -1,6 +1,6 @@
 <?php
 /*
-    Template Name: Calculate Value Page
+    Template Name: Calculate Volume Value Page
  */
 
 get_header();

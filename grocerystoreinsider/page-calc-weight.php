@@ -1,6 +1,6 @@
 <?php
 /*
-    Template Name: Calculate Value Page
+    Template Name: Calculate Weight Value Page
  */
 
 get_header();
