@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLU CODE LOOKUP</title>
+</head>
+<body>
+    <h4>SEARCH BY NAME</h4>
+    <input type="text">
+
+    <h4>OR SEARCH BY CODE</h4>
+    <input type="text">
+
+    <div id="api-response"></div>
+
+</body>
+<script>
+    fetch('https://cors-anywhere.herokuapp.com/https://gregrasmussen.com/store-system/public-plu-data')
+        .then(response => response.json())
+        .then (data => console.log(data))
+        
+        let pluCodes = response.json;
+        for(let i=0; i > pluCodes.length; i++)  {
+            document.getElementById('api-response').innerHTML = data.message[i].itemCode
+        }
+        
+</script>
+</html>

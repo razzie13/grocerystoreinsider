@@ -556,6 +556,88 @@ h2.entry-title {
 	}
 }
 
+/* SHOPPING TOOLS - PAGE TOOLS ICONS */
+.page-tools-icon-container  {
+	display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.page-tools-items {
+    background-color: var(--main-bg-colour);
+    width: 45%;
+    max-width: 270px;
+    height: 130px;
+    border-radius: var(--border-radius);
+    margin-bottom: var(--site-body-padding);
+	color: white;
+	text-align: center;
+	font-weight: bold;
+    font-size: larger;
+}
+
+.page-tools-items i  {
+	width: 100%;
+    font-size: 70px;
+    text-align: center;
+	padding-top: 14px;
+	padding-bottom: 6px;
+}
+
+.page-tools-icon-container a {
+    color: white;
+    text-decoration: none;
+}
+
+.page-tools-icon-container a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+/* VALUE CALCULATOR - WEIGHT */
+.skip-to-calc {
+    text-decoration: none;
+    font-weight: bold;
+    padding: calc(var(--site-body-padding) / 2);
+    /* margin-top: 12px; */
+    background-color: var(--main-bg-colour);
+    border-radius: var(--border-radius);
+    color: white;
+}
+.skip-to-calc:visited  {
+	color: white;
+}
+#page-tools {
+    padding: var(--site-body-padding);
+    background-color: var(--article-bg);
+    border-radius: var(--border-radius);
+}
+.value-calculator  {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+    max-width: 360px;
+}
+.value-calculator input  {
+	margin-bottom: 40px;
+}
+.value-calculator input[type="submit"]  {
+	margin-top: 40px;
+	background-color: var(--main-bg-colour);
+    color: var(--main-bg-link-colour);
+    border-style: none;
+    border-radius: var(--border-radius);
+    padding: calc(var(--site-body-padding) / 3);
+    font-weight: bold;
+}
+.value-calculator input#input-weight {
+    width: 165px;
+}
+#add-to-comparison-chart  {
+	display: none;
+}
+
 /* --------WORDPRESS CSS START----------- */
 
 

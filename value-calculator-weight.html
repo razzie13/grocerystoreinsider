@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .value-calculator  {
+            display: flex;
+            flex-direction: column;
+            width: 360px;
+        }
+        .value-calculator input  {
+            margin-bottom: 40px;
+        }
+        .value-calculator input[type="submit"]  {
+            margin-top: 40px;
+        }
+        #add-to-comparison-chart  {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="value-calculator">            
+        <label for="price">Price</label><input type="number" name="price" id="input-price">
+
+        <div id="price-and-weight">
+            <label for="weight">Weight</label><br>
+            <input type="number" name="input-weight" id="input-weight">
+            <select name="select-initial-unit" id="select-initial-unit">
+                <option value="pounds">Pounds</option>
+                <option value="ounces">Ounces</option>
+                <option value="grams">Grams</option>
+                <option value="kilograms">Kilograms</option>
+            </select>
+        </div>
+
+        <div id="convert-units">
+            Convert To:
+            <select name="select-convert-unit" id="select-convert-unit">
+                <option value="pounds">Price per Pound</option>
+                <option value="ounces">Price per Ounce</option>
+                <option value="grams">Price per 100 Grams</option>
+                <option value="kilograms">Price per Kilogram</option>
+            </select>
+        </div>
+
+        <input type="submit" value="Find Value" onclick="findValue()">
+
+        <p id="price-per-unit"></p>
+
+        <input type="submit" id="add-to-comparison-chart" value="Add to Compare List" onclick="addToCompareList()"> 
+    
+        <p id="compare-list"></p>
+
+        <input type="submit" id="clear-compare-list" value="Clear Compare List" onclick="clearCompareList()">
+    
+    
+    </div>
+</body>
+
+<script>
+    var productCompareList = [];
+
+    document.getElementById('clear-compare-list').style.display="none";
+
+
+    function findValue()  {
+        console.log('function findValue')
+        var productPrice = document.getElementById('input-price').value;
+        let productWeight = document.getElementById('input-weight').value;
+        let productInitialUnit = document.getElementById('select-initial-unit').value;
+        let productConvertUnit = document.getElementById('select-convert-unit').value;
+
+        // INCOMPLETE FORM
+        if (productPrice == '' || productWeight == '')  {
+            console.log('Please Do Not Leave Empty Fields')
+        }
+        //if ((productInitialUnit == productConvertUnit) && (productWeight != 1))  {
+        //    console.log('Please Choose a Conversion Value')
+        //}
+
+        // GET PRICE PER INDIVIDUAL UNIT
+        var productPrice = productPrice / productWeight;
+
+        // CONVERSIONS - POUNDS
+        if (productInitialUnit == 'pounds' && productConvertUnit == 'ounces')  {
+            document.getElementById('price-per-unit').innerText = 'Price per Ounce: ' + (productPrice / 16).toFixed(2);
+        }
+        if (productInitialUnit == 'pounds' && productConvertUnit == 'grams')  {
+            document.getElementById('price-per-unit').innerText = 'Price per 100 Grams: ' + ((productPrice * 2.2) / 10).toFixed(2);
+        }
+        if (productInitialUnit == 'pounds' && productConvertUnit == 'kilograms')  {
+            document.getElementById('price-per-unit').innerText = 'Price per Kilogram: ' + (productPrice * 2.2).toFixed(2);
+        }
+        // -- NEEDS WORK - DOES NOT COMPUTE PROPERLY --
+        if (productInitialUnit == 'pounds' && productConvertUnit == 'pounds')  {
+            document.getElementById('price-per-unit').innerText = 'Price per Pound: ' + productPrice / productWeight;
+        }
+
+        // CONVERSIONS - OUNCES
+        if (productInitialUnit == 'ounces' && productConvertUnit == 'pounds')  {
+            document.getElementById('price-per-unit').innerText = 'Price per Pound: ' + (productPrice * 16).toFixed(2) + ' for ' + (productWeight / 16).toFixed(2) + ' pounds';
+        }
+        if (productInitialUnit == 'ounces' && productConvertUnit == 'grams')  {
+            document.getElementById('price-per-unit').innerText = 'Price per 100 Grams: ' + productPrice.toFixed(2) * (16 * 2.2).toFixed(2) / 10;
+        }
+        if (productInitialUnit == 'ounces' && productConvertUnit == 'kilograms')  {
+            document.getElementById('price-per-unit').innerText = 'Price per Kilogram: ' + productPrice.toFixed(2) * (16 * 2.2).toFixed(2);
+        }
+
+        // CONVERSIONS - GRAMS
+        if (productInitialUnit == 'grams' && productConvertUnit == 'pounds')  {
+            document.getElementById('price-per-unit').innerText = 'Price per Pound: ' + ((productPrice * 1000) * 0.454).toFixed(2) + ' for ' + ((productWeight / 1000)/ 0.454).toFixed(2) + ' pounds';
+        }
+        if (productInitialUnit == 'grams' && productConvertUnit == 'ounces')  {
+            document.getElementById('price-per-unit').innerText = 'Price per Ounce: ' + (productPrice * 1000).toFixed(2) * (0.454 / 16).toFixed(2);
+        }
+        if (productInitialUnit == 'grams' && productConvertUnit == 'kilograms')  {
+            document.getElementById('price-per-unit').innerText = 'Price per Kilogram: ' + (productPrice * 1000).toFixed(2);
+        }
+
+        // CONVERSIONS - KILOGRAMS
+        if (productInitialUnit == 'kilograms' && productConvertUnit == 'pounds')  {
+            document.getElementById('price-per-unit').innerText = 'Price per Pound: ' + (productPrice * 0.454).toFixed(2) + ' for ' + (productWeight / 0.454).toFixed(2) + ' pounds';
+        }
+        if (productInitialUnit == 'kilograms' && productConvertUnit == 'ounces')  {
+            document.getElementById('price-per-unit').innerText = 'Price per Ounce: ' + (productPrice * 0.454).toFixed(2) / 16 + ' for ' + (productWeight / 0.454).toFixed(2) + ' pounds';
+        }
+        if (productInitialUnit == 'kilograms' && productConvertUnit == 'grams')  {
+            document.getElementById('price-per-unit').innerText = 'Price per 100 Grams: ' + (productPrice / 10).toFixed(2);
+        }
+
+        document.getElementById('add-to-comparison-chart').style.display="block";
+    }
+
+    // ADD CALCULATED ITEMS TO LIST ARRAY FOR COMPARISON WITH OTHER CALCULATED ITEMS
+    function addToCompareList()  {
+        console.log('addToCompareList')
+        productCompareList.push(document.getElementById('price-per-unit').innerText);
+        showCompareList();
+    }
+
+    // DISPLAY FULL LIST OF COMPARISON ITEMS
+    function showCompareList()  {
+        console.log('showCompareList')
+        document.getElementById('compare-list').innerHTML = '';
+        productCompareList.forEach(function(items, index)  {
+            document.getElementById('compare-list').innerHTML += "<input type='text' placeholder='Product #" + (index + 1) +"'><br>" + items + "<br>"; 
+        })
+        document.getElementById('clear-compare-list').style.display="block";
+    }
+
+    // CLEAR FULL LIST OF COMPARISON ITEMS
+    function clearCompareList()  {
+        console.log('clearCompareList')
+        productCompareList = [];
+        document.getElementById('compare-list').innerHTML = '';
+        document.getElementById('clear-compare-list').style.display="none";
+    }
+   
+</script>
+</html>
