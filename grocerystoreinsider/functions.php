@@ -231,10 +231,13 @@ function javascript_weight_calc_footer() {
 					}
 					// -- NEEDS WORK - DOES NOT COMPUTE PROPERLY --
 					if (productInitialUnit == 'pounds' && productConvertUnit == 'pounds')  {
-						document.getElementById('price-per-unit').innerText = 'Price per Pound: ' + productPrice / productWeight;
+						document.getElementById('price-per-unit').innerText = 'Price per Pound: ' + (productPrice / productWeight);
 					}
 
 					// CONVERSIONS - OUNCES
+					if (productInitialUnit == 'ounces' && productConvertUnit == 'ounces')  {
+						document.getElementById('price-per-unit').innerText = 'Price per Ounce: ' + (productPrice / productWeight).toFixed(2);
+					}
 					if (productInitialUnit == 'ounces' && productConvertUnit == 'pounds')  {
 						document.getElementById('price-per-unit').innerText = 'Price per Pound: ' + (productPrice * 16).toFixed(2) + ' for ' + (productWeight / 16).toFixed(2) + ' pounds';
 					}
